@@ -3,511 +3,632 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Vamshi Mamidi - Cloud & DevOps Engineer</title>
+    <title>Vamshi Mamidi | Cloud & DevOps Engineer</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Roboto+Mono:wght@300;400;500&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Source+Code+Pro:wght@300;400;500&display=swap" rel="stylesheet">
     <style>
         :root {
-            --primary: #0066cc;
-            --primary-dark: #0052a3;
-            --secondary: #2d3748;
-            --accent: #00b894;
-            --light: #f8f9fa;
-            --dark: #212529;
-            --gray: #6c757d;
-            --light-gray: #e9ecef;
-            --shadow: 0 5px 15px rgba(0,0,0,0.1);
+            --primary: #2563eb;
+            --primary-light: #3b82f6;
+            --secondary: #059669;
+            --dark: #111827;
+            --light: #f9fafb;
+            --gray: #6b7280;
+            --light-gray: #e5e7eb;
+            --card-bg: #ffffff;
+            --shadow: 0 10px 25px rgba(0, 0, 0, 0.08);
             --transition: all 0.3s ease;
         }
-        
+
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
         }
-        
+
         html {
             scroll-behavior: smooth;
         }
-        
+
         body {
-            font-family: 'Poppins', sans-serif;
-            line-height: 1.6;
+            font-family: 'Inter', sans-serif;
+            background-color: #f8fafc;
             color: var(--dark);
-            background-color: #fefefe;
+            line-height: 1.6;
         }
-        
+
+        .code-font {
+            font-family: 'Source Code Pro', monospace;
+        }
+
         h1, h2, h3, h4 {
-            font-weight: 600;
-            line-height: 1.3;
-            margin-bottom: 1rem;
-            color: var(--secondary);
+            font-weight: 700;
+            line-height: 1.2;
         }
-        
+
         h1 {
-            font-size: 2.5rem;
+            font-size: 3rem;
+            margin-bottom: 0.5rem;
         }
-        
+
         h2 {
-            font-size: 2rem;
+            font-size: 2.5rem;
+            margin-bottom: 1.5rem;
             position: relative;
-            padding-bottom: 10px;
-            margin-bottom: 2rem;
+            display: inline-block;
         }
-        
+
         h2:after {
             content: '';
             position: absolute;
-            bottom: 0;
             left: 0;
+            bottom: -8px;
             width: 60px;
             height: 4px;
             background: var(--primary);
+            border-radius: 2px;
         }
-        
+
         h3 {
             font-size: 1.5rem;
-            color: var(--primary);
-        }
-        
-        p {
             margin-bottom: 1rem;
-            color: var(--gray);
         }
-        
+
+        h4 {
+            font-size: 1.1rem;
+            color: var(--secondary);
+            margin-bottom: 0.5rem;
+        }
+
+        p {
+            color: var(--gray);
+            margin-bottom: 1rem;
+        }
+
         .container {
             width: 90%;
             max-width: 1200px;
             margin: 0 auto;
-            padding: 0 15px;
+            padding: 0 20px;
         }
-        
+
         section {
             padding: 80px 0;
         }
-        
-        .section-title {
+
+        .section-header {
             text-align: center;
             margin-bottom: 3rem;
         }
-        
-        .section-title h2:after {
+
+        .section-header h2:after {
             left: 50%;
             transform: translateX(-50%);
         }
-        
-        /* Header & Navigation */
+
+        /* Header */
         header {
-            background-color: white;
-            box-shadow: var(--shadow);
             position: fixed;
-            width: 100%;
             top: 0;
+            width: 100%;
             z-index: 1000;
+            padding: 20px 0;
+            background-color: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
         }
-        
-        nav {
+
+        .header-container {
             display: flex;
             justify-content: space-between;
             align-items: center;
-            padding: 20px 0;
         }
-        
+
         .logo {
             font-size: 1.8rem;
             font-weight: 700;
             color: var(--primary);
         }
-        
+
         .logo span {
-            color: var(--accent);
+            color: var(--secondary);
         }
-        
-        .nav-links {
+
+        nav ul {
             display: flex;
             list-style: none;
+            gap: 2rem;
         }
-        
-        .nav-links li {
-            margin-left: 2rem;
-        }
-        
-        .nav-links a {
+
+        nav a {
+            color: var(--dark);
             text-decoration: none;
-            color: var(--secondary);
             font-weight: 500;
             transition: var(--transition);
+            position: relative;
         }
-        
-        .nav-links a:hover {
+
+        nav a:hover {
             color: var(--primary);
         }
-        
+
+        nav a:after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: var(--primary);
+            transition: var(--transition);
+        }
+
+        nav a:hover:after {
+            width: 100%;
+        }
+
         .menu-toggle {
             display: none;
             font-size: 1.5rem;
             cursor: pointer;
-            color: var(--primary);
+            color: var(--dark);
         }
-        
-        /* Hero Section */
+
+        /* Hero Section with Photo */
         .hero {
-            background: linear-gradient(135deg, #f5f7fa 0%, #e4edf5 100%);
             padding-top: 150px;
-            padding-bottom: 100px;
-            text-align: center;
+            padding-bottom: 80px;
+            background: linear-gradient(135deg, #f0f9ff 0%, #e0f2fe 100%);
+            overflow: hidden;
         }
-        
-        .hero h1 {
-            font-size: 3rem;
-            margin-bottom: 0.5rem;
-            color: var(--secondary);
+
+        .hero-container {
+            display: flex;
+            align-items: center;
+            gap: 4rem;
         }
-        
+
+        .hero-content {
+            flex: 1;
+        }
+
+        .hero-image {
+            flex: 1;
+            display: flex;
+            justify-content: center;
+        }
+
+        .profile-photo {
+            width: 320px;
+            height: 320px;
+            border-radius: 50%;
+            overflow: hidden;
+            border: 8px solid white;
+            box-shadow: var(--shadow);
+            position: relative;
+        }
+
+        .profile-photo img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .photo-placeholder {
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(135deg, var(--primary-light), var(--secondary));
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 5rem;
+        }
+
+        .photo-placeholder span {
+            font-size: 1.2rem;
+            margin-top: 1rem;
+            font-weight: 500;
+        }
+
         .hero h2 {
             font-size: 1.8rem;
-            font-weight: 500;
+            color: var(--gray);
             margin-bottom: 1.5rem;
-            color: var(--primary);
         }
-        
+
         .hero h2:after {
             display: none;
         }
-        
+
         .hero p {
-            font-size: 1.2rem;
-            max-width: 700px;
-            margin: 0 auto 2rem;
-            color: var(--gray);
+            font-size: 1.1rem;
+            margin-bottom: 2rem;
+            max-width: 600px;
         }
-        
-        .contact-info {
+
+        .contact-bar {
             display: flex;
-            justify-content: center;
-            flex-wrap: wrap;
-            gap: 20px;
+            gap: 2rem;
             margin-top: 2rem;
+            flex-wrap: wrap;
         }
-        
+
         .contact-item {
             display: flex;
             align-items: center;
-            gap: 8px;
+            gap: 10px;
             color: var(--gray);
         }
-        
+
         .contact-item i {
             color: var(--primary);
         }
-        
+
         .btn {
             display: inline-block;
             background-color: var(--primary);
             color: white;
             padding: 12px 30px;
-            border-radius: 4px;
+            border-radius: 6px;
             text-decoration: none;
-            font-weight: 500;
+            font-weight: 600;
             transition: var(--transition);
             border: none;
             cursor: pointer;
+            box-shadow: var(--shadow);
         }
-        
+
         .btn:hover {
-            background-color: var(--primary-dark);
+            background-color: var(--primary-light);
             transform: translateY(-3px);
-            box-shadow: var(--shadow);
+            box-shadow: 0 15px 30px rgba(37, 99, 235, 0.2);
         }
-        
+
+        .btn-outline {
+            background: transparent;
+            border: 2px solid var(--primary);
+            color: var(--primary);
+        }
+
+        .btn-outline:hover {
+            background: var(--primary);
+            color: white;
+        }
+
         /* Skills Section */
-        .skills-grid {
+        .skills-container {
             display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-            gap: 30px;
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            gap: 2rem;
         }
-        
-        .skill-category {
-            background-color: white;
-            padding: 25px;
-            border-radius: 8px;
-            box-shadow: var(--shadow);
+
+        .skill-card {
+            background-color: var(--card-bg);
+            border-radius: 12px;
+            padding: 2rem;
             transition: var(--transition);
-        }
-        
-        .skill-category:hover {
-            transform: translateY(-5px);
-        }
-        
-        .skill-list {
-            list-style: none;
-        }
-        
-        .skill-list li {
-            padding: 8px 0;
-            border-bottom: 1px solid var(--light-gray);
-            display: flex;
-            align-items: center;
-        }
-        
-        .skill-list li:last-child {
-            border-bottom: none;
-        }
-        
-        .skill-list i {
-            color: var(--accent);
-            margin-right: 10px;
-            font-size: 0.9rem;
-        }
-        
-        /* Projects Section */
-        .projects-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
-            gap: 30px;
-        }
-        
-        .project-card {
-            background-color: white;
-            border-radius: 8px;
-            overflow: hidden;
             box-shadow: var(--shadow);
-            transition: var(--transition);
+            border: 1px solid var(--light-gray);
         }
-        
-        .project-card:hover {
+
+        .skill-card:hover {
             transform: translateY(-10px);
-            box-shadow: 0 15px 30px rgba(0,0,0,0.15);
+            border-color: var(--primary);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
         }
-        
-        .project-content {
-            padding: 25px;
+
+        .skill-icon {
+            font-size: 2rem;
+            color: var(--primary);
+            margin-bottom: 1.5rem;
         }
-        
-        .project-tech {
+
+        .skill-tags {
             display: flex;
             flex-wrap: wrap;
             gap: 8px;
-            margin: 15px 0;
+            margin-top: 1rem;
         }
-        
-        .tech-tag {
-            background-color: var(--light-gray);
-            color: var(--secondary);
+
+        .tag {
+            background-color: #dbeafe;
+            color: var(--primary);
             padding: 5px 12px;
             border-radius: 20px;
             font-size: 0.85rem;
             font-weight: 500;
         }
-        
-        .responsibilities {
-            margin-top: 20px;
+
+        .tag.aws {
+            background-color: #ffedd5;
+            color: #f97316;
         }
-        
-        .responsibilities h4 {
-            font-size: 1.1rem;
-            margin-bottom: 10px;
+
+        .tag.azure {
+            background-color: #dbeafe;
+            color: #2563eb;
+        }
+
+        .tag.devops {
+            background-color: #dcfce7;
             color: var(--secondary);
         }
-        
-        .responsibilities ul {
-            padding-left: 20px;
+
+        /* Projects Section */
+        .projects-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+            gap: 2rem;
+        }
+
+        .project-card {
+            background-color: var(--card-bg);
+            border-radius: 12px;
+            overflow: hidden;
+            transition: var(--transition);
+            box-shadow: var(--shadow);
+            border: 1px solid var(--light-gray);
+        }
+
+        .project-card:hover {
+            transform: translateY(-10px);
+            border-color: var(--primary);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+        }
+
+        .project-header {
+            padding: 2rem 2rem 1rem;
+            border-bottom: 1px solid var(--light-gray);
+            background-color: #f8fafc;
+        }
+
+        .project-number {
+            font-size: 0.9rem;
+            color: var(--primary);
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+        }
+
+        .project-body {
+            padding: 1.5rem 2rem;
+        }
+
+        .project-tech {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+            margin: 1rem 0;
+        }
+
+        .tech-pill {
+            background-color: #f1f5f9;
+            color: var(--gray);
+            padding: 6px 14px;
+            border-radius: 20px;
+            font-size: 0.85rem;
+            font-weight: 500;
+            border: 1px solid var(--light-gray);
+        }
+
+        .project-responsibilities {
+            margin-top: 1.5rem;
+        }
+
+        .project-responsibilities ul {
+            padding-left: 1.2rem;
             color: var(--gray);
         }
-        
-        /* Education Section */
-        .timeline {
-            position: relative;
-            max-width: 800px;
-            margin: 0 auto;
+
+        .project-responsibilities li {
+            margin-bottom: 0.5rem;
         }
-        
-        .timeline:before {
-            content: '';
-            position: absolute;
-            left: 50%;
-            transform: translateX(-50%);
-            width: 2px;
-            height: 100%;
-            background-color: var(--primary);
+
+        /* Education */
+        .education-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 2rem;
         }
-        
-        .timeline-item {
-            display: flex;
-            margin-bottom: 40px;
-            position: relative;
-        }
-        
-        .timeline-item:nth-child(odd) {
-            justify-content: flex-end;
-            padding-right: calc(50% + 30px);
-            text-align: right;
-        }
-        
-        .timeline-item:nth-child(even) {
-            justify-content: flex-start;
-            padding-left: calc(50% + 30px);
-        }
-        
-        .timeline-content {
-            background-color: white;
-            padding: 25px;
-            border-radius: 8px;
+
+        .education-card {
+            background-color: var(--card-bg);
+            border-radius: 12px;
+            padding: 2rem;
+            transition: var(--transition);
             box-shadow: var(--shadow);
-            width: 100%;
+            border: 1px solid var(--light-gray);
+            text-align: center;
         }
-        
-        .timeline-content h3 {
-            margin-bottom: 5px;
+
+        .education-card:hover {
+            transform: translateY(-5px);
+            border-color: var(--primary);
         }
-        
-        .timeline-item:before {
-            content: '';
-            position: absolute;
-            top: 0;
-            width: 20px;
-            height: 20px;
+
+        .education-icon {
+            width: 70px;
+            height: 70px;
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
             border-radius: 50%;
-            background-color: var(--primary);
-            border: 4px solid white;
-            box-shadow: 0 0 0 4px var(--primary);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 1.5rem;
+            color: white;
+            font-size: 1.8rem;
         }
-        
-        .timeline-item:nth-child(odd):before {
-            right: calc(50% - 9px);
+
+        .education-year {
+            color: var(--primary);
+            font-weight: 600;
+            margin-bottom: 0.5rem;
         }
-        
-        .timeline-item:nth-child(even):before {
-            left: calc(50% - 9px);
-        }
-        
+
         /* Footer */
         footer {
-            background-color: var(--secondary);
+            background-color: var(--dark);
+            padding: 4rem 0 2rem;
             color: white;
-            padding: 60px 0 30px;
         }
-        
-        .footer-content {
-            display: flex;
-            justify-content: space-between;
-            flex-wrap: wrap;
-            gap: 40px;
-            margin-bottom: 40px;
+
+        .footer-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 3rem;
+            margin-bottom: 3rem;
         }
-        
+
         .footer-about {
-            flex: 1;
-            min-width: 300px;
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
         }
-        
-        .footer-links {
-            flex: 1;
-            min-width: 200px;
+
+        .footer-photo {
+            width: 100px;
+            height: 100px;
+            border-radius: 50%;
+            overflow: hidden;
+            margin-bottom: 1.5rem;
+            border: 4px solid rgba(255, 255, 255, 0.1);
         }
-        
+
+        .footer-photo img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .footer-photo .photo-placeholder {
+            font-size: 2.5rem;
+        }
+
+        .footer-photo .photo-placeholder span {
+            font-size: 0.9rem;
+        }
+
+        .footer-about p {
+            color: #d1d5db;
+            margin-bottom: 1.5rem;
+        }
+
         .footer-links h3, .footer-contact h3 {
             color: white;
-            margin-bottom: 20px;
+            margin-bottom: 1.5rem;
             font-size: 1.3rem;
         }
-        
+
         .footer-links ul {
             list-style: none;
         }
-        
+
         .footer-links li {
-            margin-bottom: 10px;
+            margin-bottom: 0.8rem;
         }
-        
+
         .footer-links a {
-            color: #adb5bd;
+            color: #d1d5db;
             text-decoration: none;
             transition: var(--transition);
         }
-        
+
         .footer-links a:hover {
-            color: white;
+            color: var(--primary-light);
             padding-left: 5px;
         }
-        
-        .footer-contact p {
-            color: #adb5bd;
-            margin-bottom: 10px;
+
+        .social-links {
             display: flex;
-            align-items: center;
-            gap: 10px;
+            gap: 1rem;
+            margin-top: 1rem;
         }
-        
-        .social-icons {
+
+        .social-links a {
             display: flex;
-            gap: 15px;
-            margin-top: 20px;
-        }
-        
-        .social-icons a {
-            display: inline-flex;
             align-items: center;
             justify-content: center;
             width: 40px;
             height: 40px;
-            background-color: rgba(255,255,255,0.1);
+            background-color: rgba(255, 255, 255, 0.1);
             color: white;
             border-radius: 50%;
+            text-decoration: none;
             transition: var(--transition);
         }
-        
-        .social-icons a:hover {
+
+        .social-links a:hover {
             background-color: var(--primary);
             transform: translateY(-5px);
         }
-        
+
         .copyright {
             text-align: center;
-            padding-top: 30px;
-            border-top: 1px solid rgba(255,255,255,0.1);
-            color: #adb5bd;
+            padding-top: 2rem;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            color: #9ca3af;
             font-size: 0.9rem;
         }
-        
-        /* Responsive Styles */
+
+        /* Instructions Box */
+        .instructions {
+            background-color: #fef3c7;
+            border: 1px solid #fbbf24;
+            border-radius: 8px;
+            padding: 1rem;
+            margin: 2rem 0;
+            color: #92400e;
+        }
+
+        .instructions h4 {
+            color: #92400e;
+            margin-bottom: 0.5rem;
+        }
+
+        .instructions code {
+            background-color: rgba(0, 0, 0, 0.05);
+            padding: 2px 6px;
+            border-radius: 4px;
+            font-family: 'Source Code Pro', monospace;
+        }
+
+        /* Responsive */
         @media (max-width: 992px) {
             h1 {
-                font-size: 2.2rem;
+                font-size: 2.5rem;
             }
             
             h2 {
-                font-size: 1.8rem;
+                font-size: 2rem;
             }
             
-            .hero {
-                padding-top: 130px;
+            .hero-container {
+                flex-direction: column;
+                text-align: center;
+                gap: 3rem;
             }
             
-            .timeline:before {
-                left: 30px;
+            .hero-content {
+                order: 2;
             }
             
-            .timeline-item:nth-child(odd),
-            .timeline-item:nth-child(even) {
-                justify-content: flex-start;
-                padding-left: 60px;
-                padding-right: 0;
-                text-align: left;
+            .hero-image {
+                order: 1;
             }
             
-            .timeline-item:nth-child(odd):before,
-            .timeline-item:nth-child(even):before {
-                left: 21px;
+            .profile-photo {
+                width: 280px;
+                height: 280px;
             }
         }
-        
+
         @media (max-width: 768px) {
             .menu-toggle {
                 display: block;
             }
             
-            .nav-links {
+            nav ul {
                 position: fixed;
                 top: 80px;
                 left: 0;
@@ -515,150 +636,194 @@
                 background-color: white;
                 flex-direction: column;
                 align-items: center;
-                padding: 20px 0;
-                box-shadow: var(--shadow);
+                padding: 2rem 0;
                 transform: translateY(-100%);
                 opacity: 0;
                 transition: var(--transition);
                 z-index: 999;
+                box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
             }
             
-            .nav-links.active {
+            nav ul.active {
                 transform: translateY(0);
                 opacity: 1;
             }
             
-            .nav-links li {
-                margin: 15px 0;
+            .projects-container {
+                grid-template-columns: 1fr;
             }
-            
-            .hero h1 {
+        }
+
+        @media (max-width: 576px) {
+            h1 {
                 font-size: 2rem;
             }
             
-            .hero h2 {
-                font-size: 1.5rem;
+            h2 {
+                font-size: 1.8rem;
             }
             
             section {
                 padding: 60px 0;
             }
             
-            .projects-grid {
-                grid-template-columns: 1fr;
-            }
-        }
-        
-        @media (max-width: 576px) {
-            .hero {
-                padding-top: 120px;
-            }
-            
-            .contact-info {
+            .contact-bar {
                 flex-direction: column;
-                align-items: center;
-                gap: 10px;
+                gap: 1rem;
             }
             
-            .skills-grid {
+            .skills-container {
                 grid-template-columns: 1fr;
             }
             
-            .footer-content {
-                flex-direction: column;
+            .profile-photo {
+                width: 240px;
+                height: 240px;
             }
         }
     </style>
 </head>
 <body>
-    <!-- Header & Navigation -->
+    <!-- Header -->
     <header>
-        <div class="container">
+        <div class="container header-container">
+            <div class="logo">VM<span>.</span></div>
+            
+            <div class="menu-toggle" id="menu-toggle">
+                <i class="fas fa-bars"></i>
+            </div>
+            
             <nav>
-                <div class="logo">Vamshi Anna King<span>.</span></div>
-                <div class="menu-toggle" id="menu-toggle">
-                    <i class="fas fa-bars"></i>
-                </div>
-                <ul class="nav-links" id="nav-links">
+                <ul id="nav-menu">
                     <li><a href="#home">Home</a></li>
                     <li><a href="#skills">Skills</a></li>
                     <li><a href="#projects">Projects</a></li>
                     <li><a href="#education">Education</a></li>
-                    <li><a href="#contact">Contact</a></li>
+                    <li><a href="#contact" class="btn btn-outline">Contact</a></li>
                 </ul>
             </nav>
         </div>
     </header>
 
-    <!-- Hero Section -->
+    <!-- Hero Section with Photo -->
     <section class="hero" id="home">
-        <div class="container">
-            <h1>Vamshi Mamidi</h1>
-            <h2>Cloud & DevOps Engineer</h2>
-            <p>Motivated and results-oriented Cloud & DevOps Engineer with hands-on experience in Azure Cloud, Terraform, Docker, Kubernetes, and Azure DevOps. Seeking to contribute to infrastructure automation, deployment optimization, and reliable cloud solutions.</p>
-            <a href="#contact" class="btn">Get in Touch</a>
-            
-            <div class="contact-info">
-                <div class="contact-item">
-                    <i class="fas fa-phone"></i>
-                    <span>+91 8523015736</span>
-                </div>
-                <div class="contact-item">
-                    <i class="fas fa-envelope"></i>
-                    <span>vamshimamidi.01@gmail.com</span>
-                </div>
-                <div class="contact-item">
-                    <i class="fab fa-linkedin"></i>
-                    <a href="https://www.linkedin.com/in/vamshi-mamidi-734a36385" target="_blank"><i class="fab fa-linkedin-in"></i></a>
+        <div class="container hero-container">
+            <div class="hero-content">
+                <h1>Vamshi Mamidi</h1>
+                <h2>Cloud & DevOps Engineer</h2>
+                <p>Results-driven professional with expertise in Azure Cloud, Terraform, Docker, Kubernetes, and Azure DevOps. Specializing in infrastructure automation, deployment optimization, and scalable cloud solutions.</p>
+                <a href="#projects" class="btn">View My Projects</a>
+                
+                <div class="contact-bar">
+                    <div class="contact-item">
+                        <i class="fas fa-phone"></i>
+                        <span>+91 8523015736</span>
+                    </div>
+                    <div class="contact-item">
+                        <i class="fas fa-envelope"></i>
+                        <span>vamshimamidi.01@gmail.com</span>
+                    </div>
+                    <div class="contact-item">
+                        <i class="fab fa-linkedin"></i>
+                        <span>LinkedIn Profile</span>
+                    </div>
                 </div>
             </div>
+            
+            <div class="hero-image">
+                <div class="profile-photo">
+                    <!-- Replace this with your actual photo -->
+                    <div class="photo-placeholder">
+                        <i class="fas fa-user-circle"></i>
+                        <span>Your Photo Here</span>
+                    </div>
+                    <!-- 
+                    To add your photo:
+                    1. Save your photo as "profile.jpg" in the same folder
+                    2. Replace the div above with: <img src="profile.jpg" alt="Vamshi Mamidi">
+                    -->
+                </div>
+            </div>
+        </div>
+        
+        <!-- Instructions for adding photo -->
+        <div class="container instructions">
+            <h4>How to Add Your Photo:</h4>
+            <p>1. Save your professional photo as <code>profile.jpg</code> in the same folder as this HTML file</p>
+            <p>2. Replace lines 266-272 with: <code>&lt;img src="profile.jpg" alt="Vamshi Mamidi"&gt;</code></p>
+            <p>3. Make sure the photo is well-lit and professional (suggested size: 500x500 pixels)</p>
         </div>
     </section>
 
     <!-- Skills Section -->
     <section id="skills">
         <div class="container">
-            <div class="section-title">
-                <h2>Technical Skills</h2>
+            <div class="section-header">
+                <h2>Technical Expertise</h2>
+                <p>Comprehensive skills in cloud platforms and DevOps methodologies</p>
             </div>
             
-            <div class="skills-grid">
-                <div class="skill-category">
+            <div class="skills-container">
+                <!-- Cloud Platforms -->
+                <div class="skill-card">
+                    <div class="skill-icon">
+                        <i class="fas fa-cloud"></i>
+                    </div>
                     <h3>Cloud Platforms</h3>
-                    <ul class="skill-list">
-                        <li><i class="fas fa-check"></i> Microsoft Azure</li>
-                        <li><i class="fas fa-check"></i> Amazon Web Services (AWS)</li>
-                    </ul>
+                    <p>Extensive experience with leading cloud providers</p>
+                    <div class="skill-tags">
+                        <span class="tag azure">Microsoft Azure</span>
+                        <span class="tag aws">Amazon Web Services</span>
+                    </div>
                 </div>
                 
-                <div class="skill-category">
+                <!-- AWS Services -->
+                <div class="skill-card">
+                    <div class="skill-icon">
+                        <i class="fab fa-aws"></i>
+                    </div>
                     <h3>AWS Services</h3>
-                    <ul class="skill-list">
-                        <li><i class="fas fa-server"></i> VPC, EC2, Route 53, Auto Scaling</li>
-                        <li><i class="fas fa-database"></i> S3, EBS, EFS, RDS, DynamoDB</li>
-                        <li><i class="fas fa-shield-alt"></i> IAM, CloudWatch, CloudTrail</li>
-                        <li><i class="fas fa-code"></i> Lambda, ECS, EKS, WAF, CloudFormation</li>
-                    </ul>
+                    <p>Comprehensive AWS service implementation</p>
+                    <div class="skill-tags">
+                        <span class="tag">VPC, EC2</span>
+                        <span class="tag">S3, RDS</span>
+                        <span class="tag">Lambda, EKS</span>
+                        <span class="tag">IAM, CloudWatch</span>
+                        <span class="tag">CloudFormation</span>
+                    </div>
                 </div>
                 
-                <div class="skill-category">
+                <!-- Azure Services -->
+                <div class="skill-card">
+                    <div class="skill-icon">
+                        <i class="fas fa-server"></i>
+                    </div>
                     <h3>Azure Services</h3>
-                    <ul class="skill-list">
-                        <li><i class="fas fa-network-wired"></i> Azure Networking, VMs, Load Balancing</li>
-                        <li><i class="fas fa-database"></i> SQL Database, Storage Account</li>
-                        <li><i class="fas fa-user-shield"></i> NSG, Active Directory (Entra ID), RBAC</li>
-                        <li><i class="fas fa-cogs"></i> Logic App, App Service, Key Vault</li>
-                    </ul>
+                    <p>End-to-end Azure infrastructure management</p>
+                    <div class="skill-tags">
+                        <span class="tag">Azure Networking</span>
+                        <span class="tag">Virtual Machines</span>
+                        <span class="tag">SQL Database</span>
+                        <span class="tag">Active Directory</span>
+                        <span class="tag">Key Vault</span>
+                    </div>
                 </div>
                 
-                <div class="skill-category">
+                <!-- DevOps Tools -->
+                <div class="skill-card">
+                    <div class="skill-icon">
+                        <i class="fas fa-code"></i>
+                    </div>
                     <h3>DevOps Tools</h3>
-                    <ul class="skill-list">
-                        <li><i class="fas fa-code"></i> Terraform, ARM Templates, CloudFormation</li>
-                        <li><i class="fas fa-tools"></i> Azure DevOps, Ansible, Docker, Kubernetes</li>
-                        <li><i class="fas fa-chart-line"></i> Git, Prometheus, PowerShell</li>
-                        <li><i class="fas fa-desktop"></i> Windows & Linux Operating Systems</li>
-                    </ul>
+                    <p>Infrastructure as Code and CI/CD pipelines</p>
+                    <div class="skill-tags">
+                        <span class="tag devops">Terraform</span>
+                        <span class="tag devops">Docker</span>
+                        <span class="tag devops">Kubernetes</span>
+                        <span class="tag devops">Azure DevOps</span>
+                        <span class="tag devops">Ansible</span>
+                        <span class="tag">PowerShell</span>
+                    </div>
                 </div>
             </div>
         </div>
@@ -667,34 +832,37 @@
     <!-- Projects Section -->
     <section id="projects">
         <div class="container">
-            <div class="section-title">
-                <h2>Project Experience</h2>
+            <div class="section-header">
+                <h2>Project Portfolio</h2>
+                <p>Hands-on experience with complex cloud infrastructure projects</p>
             </div>
             
-            <div class="projects-grid">
+            <div class="projects-container">
                 <!-- Project 1 -->
                 <div class="project-card">
-                    <div class="project-content">
-                        <h3>3-Tier Web Application using Terraform</h3>
-                        <p>Designed and deployed a secure 3-tier architecture consisting of Web, App, and Database tiers on Microsoft Azure. Configured load balancing and network security to ensure high availability and secure access.</p>
+                    <div class="project-header">
+                        <div class="project-number">Project 01</div>
+                        <h3>3-Tier Web Application</h3>
+                        <p>Azure Infrastructure with Terraform</p>
+                    </div>
+                    <div class="project-body">
+                        <p>Designed and deployed a secure 3-tier architecture on Microsoft Azure with load balancing and network security for high availability.</p>
                         
                         <div class="project-tech">
-                            <span class="tech-tag">AzureRM Templates</span>
-                            <span class="tech-tag">VM</span>
-                            <span class="tech-tag">Load Balancer</span>
-                            <span class="tech-tag">NSG</span>
-                            <span class="tech-tag">VNet</span>
-                            <span class="tech-tag">SQL DB</span>
-                            <span class="tech-tag">Storage Account</span>
+                            <span class="tech-pill">AzureRM</span>
+                            <span class="tech-pill">Load Balancer</span>
+                            <span class="tech-pill">NSG</span>
+                            <span class="tech-pill">VNet</span>
+                            <span class="tech-pill">SQL DB</span>
                         </div>
                         
-                        <div class="responsibilities">
-                            <h4>Roles & Responsibilities:</h4>
+                        <div class="project-responsibilities">
+                            <h4>Key Responsibilities:</h4>
                             <ul>
-                                <li>Created Virtual Network, Subnets, NSG, and Route configuration for network segmentation</li>
-                                <li>Deployed Web, App, and DB servers and configured inter-tier communication securely</li>
-                                <li>Implemented Azure Load Balancer to distribute traffic across the Web tier</li>
-                                <li>Enabled Backup and Monitoring for high availability and fault resilience</li>
+                                <li>Created Virtual Network, Subnets, NSG for segmentation</li>
+                                <li>Deployed Web, App, and DB servers securely</li>
+                                <li>Implemented Azure Load Balancer for traffic distribution</li>
+                                <li>Enabled Backup and Monitoring solutions</li>
                             </ul>
                         </div>
                     </div>
@@ -702,26 +870,29 @@
                 
                 <!-- Project 2 -->
                 <div class="project-card">
-                    <div class="project-content">
-                        <h3>Hub and Spoke Network Architecture</h3>
-                        <p>Designed and implemented a Hub and Spoke network topology in Azure to centralize networking services and improve security and traffic control. Established peering between multiple spoke VNets and a hub VNet.</p>
+                    <div class="project-header">
+                        <div class="project-number">Project 02</div>
+                        <h3>Hub & Spoke Network</h3>
+                        <p>Azure Network Architecture</p>
+                    </div>
+                    <div class="project-body">
+                        <p>Designed and implemented Hub and Spoke topology in Azure to centralize networking services and improve security controls.</p>
                         
                         <div class="project-tech">
-                            <span class="tech-tag">Azure Networking</span>
-                            <span class="tech-tag">VNet Peering</span>
-                            <span class="tech-tag">NSG</span>
-                            <span class="tech-tag">Firewall</span>
-                            <span class="tech-tag">VPN Gateway</span>
+                            <span class="tech-pill">VNet Peering</span>
+                            <span class="tech-pill">Azure Firewall</span>
+                            <span class="tech-pill">VPN Gateway</span>
+                            <span class="tech-pill">NSG</span>
+                            <span class="tech-pill">Route Tables</span>
                         </div>
                         
-                        <div class="responsibilities">
-                            <h4>Roles & Responsibilities:</h4>
+                        <div class="project-responsibilities">
+                            <h4>Key Responsibilities:</h4>
                             <ul>
-                                <li>Created Virtual Networks (Hub and multiple Spokes) and configured address spaces & subnets</li>
-                                <li>Implemented VNet Peering between Hub and Spoke VNets to allow secure communication</li>
-                                <li>Configured Network Security Groups (NSG) and Route Tables to restrict and control traffic flow</li>
-                                <li>Integrated centralized services (VPN Gateway / Firewall / Bastion) within Hub for shared access</li>
-                                <li>Tested cross-VNet communication and validated isolation between spoke resources</li>
+                                <li>Created Hub and multiple Spoke VNets</li>
+                                <li>Implemented VNet Peering for secure communication</li>
+                                <li>Configured NSG and Route Tables for traffic control</li>
+                                <li>Integrated centralized services in Hub</li>
                             </ul>
                         </div>
                     </div>
@@ -729,25 +900,29 @@
                 
                 <!-- Project 3 -->
                 <div class="project-card">
-                    <div class="project-content">
-                        <h3>Terraform End-to-End Infrastructure Deployment</h3>
-                        <p>Automated the provisioning of Azure infrastructure using Terraform to eliminate manual setup and enable reproducible, consistent deployments. Implemented Infrastructure as Code (IaC) to deploy virtual networks, subnets, VMs, and storage services.</p>
+                    <div class="project-header">
+                        <div class="project-number">Project 03</div>
+                        <h3>Terraform IaC Deployment</h3>
+                        <p>End-to-End Infrastructure Automation</p>
+                    </div>
+                    <div class="project-body">
+                        <p>Automated Azure infrastructure provisioning using Terraform to eliminate manual setup and enable reproducible deployments.</p>
                         
                         <div class="project-tech">
-                            <span class="tech-tag">Terraform</span>
-                            <span class="tech-tag">Azure</span>
-                            <span class="tech-tag">Linux</span>
-                            <span class="tech-tag">Git</span>
-                            <span class="tech-tag">Azure DevOps</span>
+                            <span class="tech-pill">Terraform</span>
+                            <span class="tech-pill">Azure CLI</span>
+                            <span class="tech-pill">Azure DevOps</span>
+                            <span class="tech-pill">GitHub</span>
+                            <span class="tech-pill">Linux</span>
                         </div>
                         
-                        <div class="responsibilities">
-                            <h4>Roles & Responsibilities:</h4>
+                        <div class="project-responsibilities">
+                            <h4>Key Responsibilities:</h4>
                             <ul>
-                                <li>Created reusable Terraform modules for network, compute, and storage resources</li>
-                                <li>Deployed Azure resources such as VNet, subnets, NSG, Public IP, NIC, and Virtual Machines</li>
-                                <li>Implemented remote backend using Azure Storage for Terraform state management</li>
-                                <li>Integrated Terraform with Azure DevOps pipeline for automated provisioning and validation</li>
+                                <li>Created reusable Terraform modules</li>
+                                <li>Deployed VNet, subnets, VMs, and storage</li>
+                                <li>Implemented remote backend with Azure Storage</li>
+                                <li>Integrated with Azure DevOps pipeline</li>
                             </ul>
                         </div>
                     </div>
@@ -759,52 +934,68 @@
     <!-- Education Section -->
     <section id="education">
         <div class="container">
-            <div class="section-title">
+            <div class="section-header">
                 <h2>Education</h2>
+                <p>Academic background and qualifications</p>
             </div>
             
-            <div class="timeline">
+            <div class="education-container">
                 <!-- Education 1 -->
-                <div class="timeline-item">
-                    <div class="timeline-content">
-                        <h3>Bachelor of Technology, Mechanical Engineering</h3>
-                        <p><strong>Sana Engineering College, Kodada</strong></p>
-                        <p>Graduated: 2021</p>
+                <div class="education-card">
+                    <div class="education-icon">
+                        <i class="fas fa-graduation-cap"></i>
                     </div>
+                    <div class="education-year">2021</div>
+                    <h3>Bachelor of Technology</h3>
+                    <h4>Mechanical Engineering</h4>
+                    <p>Sana Engineering College, Kodada</p>
                 </div>
                 
                 <!-- Education 2 -->
-                <div class="timeline-item">
-                    <div class="timeline-content">
-                        <h3>Intermediate</h3>
-                        <p><strong>Sri Gayathri Junior College</strong></p>
-                        <p>Completed: 2014</p>
+                <div class="education-card">
+                    <div class="education-icon">
+                        <i class="fas fa-school"></i>
                     </div>
+                    <div class="education-year">2014</div>
+                    <h3>Intermediate</h3>
+                    <p>Sri Gayathri Junior College</p>
                 </div>
                 
                 <!-- Education 3 -->
-                <div class="timeline-item">
-                    <div class="timeline-content">
-                        <h3>10th Grade</h3>
-                        <p><strong>Vijaya Vidya Mandir High School</strong></p>
-                        <p>Completed: 2012</p>
+                <div class="education-card">
+                    <div class="education-icon">
+                        <i class="fas fa-book-open"></i>
                     </div>
+                    <div class="education-year">2012</div>
+                    <h3>10th Grade</h3>
+                    <p>Vijaya Vidya Mandir High School</p>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Footer & Contact Section -->
+    <!-- Footer -->
     <footer id="contact">
         <div class="container">
-            <div class="footer-content">
+            <div class="footer-container">
                 <div class="footer-about">
+                    <div class="footer-photo">
+                        <!-- Small version of your photo in footer -->
+                        <div class="photo-placeholder">
+                            <i class="fas fa-user-circle"></i>
+                        </div>
+                        <!-- 
+                        To add your photo here too:
+                        Replace the div above with: <img src="profile.jpg" alt="Vamshi Mamidi">
+                        -->
+                    </div>
                     <h3>Vamshi Mamidi</h3>
-                    <p>Cloud & DevOps Engineer with expertise in Azure, AWS, Terraform, Docker, Kubernetes, and Azure DevOps. Passionate about building scalable, automated, and reliable cloud infrastructure solutions.</p>
-                    <div class="social-icons">
+                    <p>Cloud & DevOps Engineer specializing in Azure, AWS, Terraform, and Kubernetes. Passionate about building scalable, automated infrastructure solutions.</p>
+                    <div class="social-links">
                         <a href="https://www.linkedin.com/in/vamshi-mamidi-734a36385" target="_blank"><i class="fab fa-linkedin-in"></i></a>
                         <a href="mailto:vamshimamidi.01@gmail.com"><i class="fas fa-envelope"></i></a>
                         <a href="tel:+918523015736"><i class="fas fa-phone"></i></a>
+                        <a href="https://github.com" target="_blank"><i class="fab fa-github"></i></a>
                     </div>
                 </div>
                 
@@ -823,43 +1014,60 @@
                     <h3>Contact Info</h3>
                     <p><i class="fas fa-phone"></i> +91 8523015736</p>
                     <p><i class="fas fa-envelope"></i> vamshimamidi.01@gmail.com</p>
-                    <p><i class="fab fa-linkedin"></i> linkedin.com/in/vamshi-mamidi-734a36385</p>
+                    <p><i class="fab fa-linkedin"></i> linkedin.com/in/vamshi-mamidi</p>
+                    <p><i class="fas fa-map-marker-alt"></i> Hyderabad, India</p>
                 </div>
             </div>
             
             <div class="copyright">
                 <p>&copy; 2023 Vamshi Mamidi. All rights reserved.</p>
-                <p>Designed as a static portfolio website for GitHub hosting.</p>
+                <p>Portfolio website designed for GitHub hosting</p>
             </div>
         </div>
     </footer>
 
     <script>
-        // Mobile Menu Toggle
+        // Mobile menu toggle
         const menuToggle = document.getElementById('menu-toggle');
-        const navLinks = document.getElementById('nav-links');
+        const navMenu = document.getElementById('nav-menu');
         
         menuToggle.addEventListener('click', () => {
-            navLinks.classList.toggle('active');
+            navMenu.classList.toggle('active');
+            menuToggle.innerHTML = navMenu.classList.contains('active') 
+                ? '<i class="fas fa-times"></i>' 
+                : '<i class="fas fa-bars"></i>';
         });
         
-        // Close mobile menu when clicking a link
-        document.querySelectorAll('.nav-links a').forEach(link => {
+        // Close menu when clicking a link
+        document.querySelectorAll('nav a').forEach(link => {
             link.addEventListener('click', () => {
-                navLinks.classList.remove('active');
+                navMenu.classList.remove('active');
+                menuToggle.innerHTML = '<i class="fas fa-bars"></i>';
             });
         });
         
-        // Smooth scroll for anchor links
+        // Add scroll effect to header
+        window.addEventListener('scroll', () => {
+            const header = document.querySelector('header');
+            if (window.scrollY > 100) {
+                header.style.backgroundColor = 'rgba(255, 255, 255, 0.98)';
+                header.style.boxShadow = '0 5px 20px rgba(0, 0, 0, 0.1)';
+            } else {
+                header.style.backgroundColor = 'rgba(255, 255, 255, 0.95)';
+                header.style.boxShadow = '0 2px 10px rgba(0, 0, 0, 0.05)';
+            }
+        });
+        
+        // Smooth scrolling for anchor links
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
             anchor.addEventListener('click', function(e) {
                 e.preventDefault();
                 
                 const targetId = this.getAttribute('href');
-                if(targetId === '#') return;
+                if (targetId === '#') return;
                 
                 const targetElement = document.querySelector(targetId);
-                if(targetElement) {
+                if (targetElement) {
                     window.scrollTo({
                         top: targetElement.offsetTop - 80,
                         behavior: 'smooth'
@@ -867,6 +1075,19 @@
                 }
             });
         });
+        
+        // Instructions box removal after 10 seconds
+        setTimeout(() => {
+            const instructions = document.querySelector('.instructions');
+            if (instructions) {
+                instructions.style.opacity = '0.7';
+                instructions.style.transition = 'opacity 1s ease';
+                
+                setTimeout(() => {
+                    instructions.style.display = 'none';
+                }, 1000);
+            }
+        }, 10000);
     </script>
 </body>
 </html>
